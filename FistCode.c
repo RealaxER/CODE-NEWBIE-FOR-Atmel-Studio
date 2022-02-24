@@ -1,10 +1,13 @@
-
-#ifndef F_CPU					// if F_CPU was not defined in Project -> Properties // để nó không hiện cảnh báo 
-#define F_CPU 1000000UL			// define it now as 1 MHz unsigned long // khai báo tần số thạch anh 
+#ifndef F_CPU					// if F_CPU was not defined in Project -> Properties // ?? nó không hi?n c?nh báo
+#define F_CPU 1000000UL			// define it now as 1 MHz unsigned long // khai báo t?n s? th?ch anh
 #endif
 
-#include <avr/io.h>				// this is always included in AVR programs // thư viện của chương trình chsinh 
-#include <util/delay.h>			// add this to use the delay function // thư viện delay 
+#include <avr/io.h>				// this is always included in AVR programs // th? vi?n c?a ch??ng trình chsinh
+#include <util/delay.h>
+#include <avr/sfr_defs.h>
+#define cbi(port,bit) (port) &= ~(1<<(bit))
+#define sbi(port,bit) (port) |= (1<<bit)
+#define tbi(port,bit) (port) ^= (1<<bit)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 int main(void) {
